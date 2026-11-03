@@ -31,14 +31,14 @@ Pangolin VPN is preparing for its public release.
 
 Visit the official website for product information, platform availability, and future download options.
 
-**[Visit Pangolin VPN](https://pangolin.yanmeiai.com/)**
+**[Get started in 3 minutes](https://pangolin.yanmeiai.com/docs/quickstart/)**
 
 ## Documentation
 
 Explore product information, installation guides, and troubleshooting resources through the official website.
 
-- [Official Website](https://pangolin.yanmeiai.com/)
-- [Product Documentation](https://pangolin.yanmeiai.com/)
+- [Official Website](https://pangolin.yanmeiai.com)
+- [Product Documentation](https://pangolin.yanmeiai.com/docs/quickstart/)
 
 ## Privacy and Security
 
