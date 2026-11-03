@@ -60,7 +60,7 @@ We welcome product feedback, bug reports, and suggestions.
 
 For product information and support, visit:
 
-https://pangolin.yanmeiai.com/
+[https://pangolin.yanmeiai.com/](https://pangolin.yanmeiai.com/docs/about/)
 
 ## License
 
