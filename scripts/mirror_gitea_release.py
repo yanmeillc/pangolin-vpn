@@ -4,7 +4,8 @@ from __future__ import annotations
 import argparse, hashlib, json, re, subprocess, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
-GITEA_URL = "https://git.51yanmei.com"
+GITEA_URL = __import__("os").environ.get("GITEA_URL", "https://git.51yanmei.com").rstrip("/")
+GITEA_PUBLIC_HOST = "git.51yanmei.com"
 GITEA_REPO = "wangjia/pangolin"
 GITHUB_REPO = "yanmeillc/pangolin-vpn"
 ASSET_NAMES = ("pangolin-android.apk", "pangolin-windows-x64-setup.exe", "pangolin-macos-x64.zip")
@@ -27,13 +28,14 @@ def fetch_release(tag: str) -> dict:
     if data.get("tag_name") != tag or data.get("draft"): raise MirrorError(f"Gitea response is not a published {tag} release")
     return data
 
-def download_asset(asset: dict, destination: Path, gitea_host: str) -> str:
+def download_asset(asset: dict, destination: Path) -> str:
     name, size, url = asset.get("name"), asset.get("size"), asset.get("browser_download_url")
     if not isinstance(size, int) or size <= 0: raise MirrorError(f"Invalid advertised size for {name!r}")
     parsed = urllib.parse.urlsplit(url or "")
-    if parsed.hostname != gitea_host or not parsed.path.startswith(f"/{GITEA_REPO}/releases/download/"):
+    if parsed.hostname != GITEA_PUBLIC_HOST or not parsed.path.startswith(f"/{GITEA_REPO}/releases/download/"):
         raise MirrorError(f"Unexpected Gitea asset URL for {name}: {url}")
-    url = urllib.parse.urlunsplit(("https", parsed.netloc, parsed.path, parsed.query, ""))
+    base = urllib.parse.urlsplit(GITEA_URL)
+    url = urllib.parse.urlunsplit((base.scheme, base.netloc, parsed.path, parsed.query, ""))
     digest, received = hashlib.sha256(), 0
     try:
         with request(url, timeout=180) as response, destination.open("wb") as out:
@@ -58,12 +60,15 @@ def release_exists(tag: str) -> bool:
     return subprocess.run(["gh", "release", "view", tag, "--repo", GITHUB_REPO], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
 
 def main() -> int:
+    global GITEA_URL
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("version", help="Original Pangolin version, e.g. 1.2.42")
     parser.add_argument("--dry-run", action="store_true", help="download and verify only; do not change GitHub")
     parser.add_argument("--replace", action="store_true", help="replace same-named assets in an existing GitHub release")
+    parser.add_argument("--gitea-url", default=GITEA_URL, help="Gitea base URL; can use the LAN endpoint")
     args = parser.parse_args()
     if not re.fullmatch(r"\d+\.\d+\.\d+", args.version): parser.error("version must be plain semantic version, e.g. 1.2.42")
+    GITEA_URL = args.gitea_url.rstrip("/")
     tag = f"client-v{args.version}"
     release = fetch_release(tag)
     by_name = {}
@@ -78,7 +83,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix=f"pangolin-{tag}-") as temp:
         directory = Path(temp); checksums = []
         for name in ASSET_NAMES:
-            digest = download_asset(by_name[name], directory / name, urllib.parse.urlsplit(GITEA_URL).hostname or "")
+            digest = download_asset(by_name[name], directory / name)
             checksums.append(f"{digest}  {name}")
             print(f"verified {name}: {by_name[name]['size']} bytes sha256:{digest}")
         checksum_file = directory / "SHA256SUMS.txt"
