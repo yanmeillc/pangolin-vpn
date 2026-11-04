@@ -15,7 +15,7 @@
 
 ## 结构与文档约定
 - README.md：GitHub 首屏与文档导航。
-- docs/index.html：所有公开文档的入口与分类索引。
+- docs/index.md：所有公开文档的入口与分类索引。
 - docs/product/：产品与功能说明。
 - docs/guides/：安装和使用指南。
 - docs/technical/：公开连接模型与技术边界。
@@ -24,7 +24,7 @@
 - assets/：可公开图片与品牌素材，使用前确认版权与隐私。
 - scripts/：本地文档校验工具；.github/：CI 与反馈模板。
 
-新文档使用自包含 HTML、统一深色主题、内联 CSS/JS，不依赖 CDN。页面之间、图片和脚本使用相对路径；新增页面登记 docs/index.html。README、AGENTS、贡献规范和 GitHub 模板保留原生格式。内容优先于视觉特效，不引入网站框架或托管配置，除非任务明确需要。
+新文档使用自包含 HTML、统一深色主题、内联 CSS/JS，不依赖 CDN。页面之间、图片和脚本使用相对路径；新增页面登记 docs/index.md。README、AGENTS、贡献规范和 GitHub 模板保留原生格式。内容优先于视觉特效，不引入网站框架或托管配置，除非任务明确需要。
 
 ## 开发与交付
 先检查工作区与 worktree，再 git fetch origin，检查 main...origin/main。新任务从 origin/main 建立独立分支与 worktree，位置为项目根目录下 .codex/worktrees/<分支名>/。主工作区保留 main，保留无关改动。
@@ -32,4 +32,4 @@
 提交前运行 python3 scripts/check_docs.py，检查页面链接、内容状态及 git diff --check。完成后提交、推送并创建 PR；用户确认后才能合并。未经明确授权不得部署、开启 Pages、打 tag 或发布版本。
 
 ## 本地阅读
-直接打开 docs/index.html，或在 worktree 根目录运行 python3 -m http.server 8000，再访问 http://localhost:8000/docs/ 。重启时停止旧进程并重新执行该命令。
+直接打开 docs/index.md，或在 worktree 根目录运行 python3 -m http.server 8000，再访问 http://localhost:8000/docs/ 。重启时停止旧进程并重新执行该命令。
