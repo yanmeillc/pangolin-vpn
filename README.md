@@ -6,7 +6,7 @@ Pangolin VPN is a cross-platform VPN service designed to make encrypted connecti
 
 This is the official public product information and documentation repository maintained by **Yanmei AI LLC**. The proprietary VPN client and server source code are not included.
 
-[Official website](https://pangolin.yanmeiai.com/) · [Documentation index](docs/index.html)
+[Official website](https://pangolin.yanmeiai.com/) · [Documentation index](docs/index.md)
 
 ## Product overview
 
@@ -21,20 +21,20 @@ Feature availability can vary by platform and release. Check current official in
 
 | Topic | Entry |
 | --- | --- |
-| Product and features | [Overview](docs/product/overview.html) |
-| Installation and first connection | [Guide](docs/guides/install.html) |
-| Public technical documentation | [Connection model](docs/technical/connection-model.html) |
-| FAQ and troubleshooting | [Support guide](docs/support/troubleshooting.html) |
-| Repository design and next steps | [Foundation](docs/plans/repository-scope.html) |
+| Product and features | [Overview](docs/product/overview.md) |
+| Installation and first connection | [Guide](docs/guides/install.md) |
+| Public technical documentation | [Connection model](docs/technical/connection-model.md) |
+| FAQ and troubleshooting | [Support guide](docs/support/troubleshooting.md) |
+| Repository design and next steps | [Foundation](docs/plans/repository-scope.md) |
 
-GitHub displays HTML files as source. Open the documentation locally in a browser, or consult the official website for hosted product information.
+GitHub renders the Markdown documentation directly. Consult the official website for hosted product information.
 
 ## Repository layout
 
 ```text
 AGENTS.md                 Maintainer and agent rules
 README.md                 Public GitHub entry point
-docs/index.html           Documentation index
+docs/index.md           Documentation index
 docs/product/             Product and feature descriptions
 docs/guides/              Installation and usage
 docs/technical/           Public technical reference
