@@ -1,5 +1,7 @@
 # Troubleshooting and FAQ
 
+[简体中文](troubleshooting.zh-CN.md)
+
 ## Cannot connect
 
 1. Check whether your internet connection works with the VPN disconnected.

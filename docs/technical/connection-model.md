@@ -1,6 +1,6 @@
 # Connection model and boundaries
 
-This page explains the general VPN model. It is not a specification of Pangolin VPN’s internal implementation.
+[简体中文](connection-model.zh-CN.md) the general VPN model. It is not a specification of Pangolin VPN’s internal implementation.
 
 ## General model
 

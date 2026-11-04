@@ -1,5 +1,7 @@
 # Repository foundation
 
+[简体中文](repository-scope.zh-CN.md)
+
 ## Purpose
 
 Provide an official GitHub entry point for product discovery, public feature explanations, installation guidance and public technical documentation.

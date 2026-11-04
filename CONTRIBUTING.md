@@ -1,3 +1,5 @@
+[简体中文](CONTRIBUTING.zh-CN.md)
+
 # Contributing
 
 This repository accepts improvements to public Pangolin VPN product information and documentation.
