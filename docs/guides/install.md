@@ -1,6 +1,6 @@
 # Installation and first connection
 
-> Platform specific downloads, minimum operating system versions and installation steps are pending verification. This guide does not provide executable installation commands.
+> [简体中文](install.zh-CN.md), minimum operating system versions and installation steps are pending verification. This guide does not provide executable installation commands.
 
 ## Find the official installer
 

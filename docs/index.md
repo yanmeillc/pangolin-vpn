@@ -1,6 +1,6 @@
 # Pangolin VPN Documentation
 
-Official product information and public documentation. Platform specific release information is still being verified.
+[简体中文](index.zh-CN.md) and public documentation. Platform specific release information is still being verified.
 
 ## Product and guides
 

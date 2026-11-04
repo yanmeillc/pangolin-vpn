@@ -2,6 +2,8 @@
 
 **Secure connections. Simple experience. Your internet, your choice.**
 
+[简体中文](README.zh-CN.md)
+
 Pangolin VPN is a cross-platform VPN service designed to make encrypted connections, server selection and connection management easy to use.
 
 This is the official public product information and documentation repository maintained by **Yanmei AI LLC**. The proprietary VPN client and server source code are not included.

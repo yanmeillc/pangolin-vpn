@@ -1,6 +1,6 @@
 # Product and features
 
-Pangolin VPN aims to make VPN connections easy to manage through a consistent application experience.
+[简体中文](overview.zh-CN.md) to make VPN connections easy to manage through a consistent application experience.
 
 ## Product scope
 

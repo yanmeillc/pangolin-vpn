@@ -13,6 +13,8 @@ def main():
     files = sorted([*ROOT.glob('*.md'), *ROOT.glob('docs/**/*.md'), *ROOT.glob('assets/**/*.md')])
     index = ROOT / 'docs/index.md'
     indexed = {urlsplit(link).path for link in LINK.findall(index.read_text())}
+    zh_index = ROOT / 'docs/index.zh-CN.md'
+    zh_indexed = {urlsplit(link).path for link in LINK.findall(zh_index.read_text())}
     for source in files:
         content = source.read_text()
         for link in LINK.findall(content):
@@ -25,9 +27,11 @@ def main():
             target = (source.parent / unquote(parts.path)).resolve() if parts.path else source
             if not target.is_relative_to(ROOT) or not target.exists():
                 errors.append(f'{source.relative_to(ROOT)}: missing or out-of-repository target {link}')
-            elif source.parent == ROOT / 'docs' and source != index and target.suffix == '.md':
+            elif source.parent == ROOT / 'docs' and source not in (index, zh_index) and target.suffix == '.md':
                 rel = target.relative_to(ROOT / 'docs').as_posix()
-                if rel not in indexed:
+                if source.name.endswith('.zh-CN.md') and rel not in zh_indexed:
+                    errors.append(f'{source.relative_to(ROOT)}: absent from docs/index.zh-CN.md')
+                elif not source.name.endswith('.zh-CN.md') and rel not in indexed:
                     errors.append(f'{source.relative_to(ROOT)}: absent from docs/index.md')
     if errors:
         print('\n'.join(errors), file=sys.stderr)
