@@ -2,74 +2,68 @@
 
 **Secure connections. Simple experience. Your internet, your choice.**
 
-Pangolin VPN is a cross-platform VPN service designed to provide secure, reliable, and easy-to-use internet connectivity.
+Pangolin VPN is a cross-platform VPN service designed to make encrypted connections, server selection and connection management easy to use.
 
-Whether you're working remotely, using public Wi-Fi, or looking for greater privacy online, Pangolin VPN helps you manage your connections with a simple interface.
+This is the official public product information and documentation repository maintained by **Yanmei AI LLC**. The proprietary VPN client and server source code are not included.
 
-🌐 **Official Website:** https://pangolin.yanmeiai.com/
+[Official website](https://pangolin.yanmeiai.com/) · [Documentation index](docs/index.html)
 
-## Features
+## Product overview
 
-### 🔐 Encrypted VPN Connections
-Pangolin VPN routes network traffic through encrypted VPN tunnels to help protect data in transit.
+- Encrypted VPN connections to help protect traffic in transit.
+- Selection from available VPN server locations.
+- Simple connect and disconnect controls.
+- Connection status and available usage information.
 
-### 🌍 Server Selection
-Choose from available VPN server locations and manage your connection without complicated manual configuration.
-
-### ⚡ Simple Connection Experience
-Connect and disconnect through an easy-to-use interface designed for everyday use.
-
-### 📊 Connection Information
-View connection status and available usage information directly in the application.
-
-### 💻 Cross-Platform Experience
-Pangolin VPN is designed to provide a consistent experience across supported platforms.
-
-## Getting Started
-
-Pangolin VPN is preparing for its public release.
-
-Visit the official website for product information, platform availability, and future download options.
-
-**[Get started in 3 minutes](https://pangolin.yanmeiai.com/docs/quickstart/)**
+Feature availability can vary by platform and release. Check current official information before installing. A verified platform, version and download matrix has not yet been added here.
 
 ## Documentation
 
-Explore product information, installation guides, and troubleshooting resources through the official website.
+| Topic | Entry |
+| --- | --- |
+| Product and features | [Overview](docs/product/overview.html) |
+| Installation and first connection | [Guide](docs/guides/install.html) |
+| Public technical documentation | [Connection model](docs/technical/connection-model.html) |
+| FAQ and troubleshooting | [Support guide](docs/support/troubleshooting.html) |
+| Repository design and next steps | [Foundation](docs/plans/repository-scope.html) |
 
-- [Official Website](https://pangolin.yanmeiai.com)
-- [Product Documentation](https://pangolin.yanmeiai.com/docs/quickstart/)
+GitHub displays HTML files as source. Open the documentation locally in a browser, or consult the official website for hosted product information.
 
-## Privacy and Security
+## Repository layout
 
-Pangolin VPN is designed with user privacy and connection security in mind.
+```text
+AGENTS.md                 Maintainer and agent rules
+README.md                 Public GitHub entry point
+docs/index.html           Documentation index
+docs/product/             Product and feature descriptions
+docs/guides/              Installation and usage
+docs/technical/           Public technical reference
+docs/support/             FAQ and troubleshooting
+docs/plans/               Public repository design
+assets/                   Public documentation assets
+scripts/                  Documentation validation
+.github/                  Feedback templates and CI
+```
 
-Encrypted VPN tunnels help protect data in transit. Encryption does not by itself guarantee complete anonymity, and privacy protections depend on the service's implementation and policies.
+## Read and validate locally
 
-For information about data handling and service policies, please refer to the official website.
+From the repository root:
 
-## About the Project
+```sh
+python3 scripts/check_docs.py
+python3 -m http.server 8000
+```
 
-Pangolin VPN is developed and maintained by **Yanmei AI LLC**.
+Open http://localhost:8000/docs/ . To restart the preview, stop the server with Ctrl+C and run the server command again. No hosting or deployment is configured by this repository.
 
-We focus on making network connectivity easier to manage through practical software and infrastructure engineering.
+## Feedback and contribution
 
-## Feedback and Support
+Use GitHub issues for sanitized bug reports, feature requests or documentation corrections. Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes. Never post personal information, credentials or raw diagnostic logs.
 
-We welcome product feedback, bug reports, and suggestions.
+For private support and security reports, email [admin@yanmeiai.com](mailto:admin@yanmeiai.com). See [SECURITY.md](SECURITY.md).
 
-For product information and support, visit:
+## Privacy and ownership
 
-[https://pangolin.yanmeiai.com/](https://pangolin.yanmeiai.com/docs/about/)
+Encrypted tunnels help protect traffic in transit; they do not by themselves guarantee complete anonymity. Consult current official service policies for data handling information.
 
-## License
-
-Pangolin VPN is proprietary software.
-
-This repository is intended for public product information and documentation. It does not contain the proprietary VPN client or server source code.
-
----
-
-**Pangolin VPN — Connect simply. Browse confidently.**
-
-[Official Website](https://pangolin.yanmeiai.com/)
+Pangolin VPN is proprietary software. This repository does not grant a license to the application, trademarks or documentation. No open-source license is granted by this initialization.
